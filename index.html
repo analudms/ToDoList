@@ -3,9 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/buttons.css">
+    <link rel="stylesheet" href="./style/records.css">
+    <link rel="stylesheet" href="./style/modal.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="./assets/icons8.png">
+
+    <script src="script.js/script.js" defer></script>
+
     <title>CRUD - ToDoList</title>
 </head>
 <body>
-    
+
+    <header>
+        <h1 class="headerTitle ">Register Customer</h1>
+    </header>
+
+    <main>
+        <button type="button" class="button Register mobile" id="registerCustomer">Register Customer</button>
+
+        <table class="records">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Telephone</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ana</td>
+                    <td>ana@server.com</td>
+                    <td>315558695</td>
+                    <td>BH</td>
+                    <td>
+                        <button type="button" class="button Edit">Edit</button>
+                        <button type="button" class="button Delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rodrigo</td>
+                    <td>rodrigo@server.com</td>
+                    <td>315558695</td>
+                    <td>BH</td>
+                    <td>
+                        <button type="button" class="button Edit">Edit</button>
+                        <button type="button" class="button Delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Paçoca</td>
+                    <td>paçoca@server.com</td>
+                    <td>315558695</td>
+                    <td>BH</td>
+                    <td>
+                        <button type="button" class="button Edit">Edit</button>
+                        <button type="button" class="button Delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="modal" id="modal">
+            <div class="modalContent">
+                <header class="modalHeader">
+                    <h2>New Customer</h2>
+                    <span class="modalClose" id="modalClose">&#10006;</span>
+                </header>
+                <form class="modalForm">
+                    <input type="text" class="modalField" placeholder=" Name">
+                    <input type="email" class="modalField" placeholder="E-mail">
+                    <input type="text" class="modalField" placeholder="Telephone">
+                    <input type="text" class="modalField" placeholder="City">
+                </form>
+                <footer class="modalFooter">
+                    <button class="button Edit">Register</button>
+                    <button class="button Delete">Cancel</button>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Projeto feito para fins didáticos
+    </footer>
 </body>
 </html>
