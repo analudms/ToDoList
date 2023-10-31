@@ -7,8 +7,8 @@ const closeModal = () =>
   document.getElementById("modal").classList.remove("active");
 
 const tempClient = {
-  nome: "Laura",
-  email: "laura@gmail.com",
+  nome: "Bruna",
+  email: "bruna@gmail.com",
   celular: "31988556699",
   cidade: "Belo Horizonte"
 };
@@ -21,7 +21,21 @@ const setLocalStorage = (dbClient) =>
 
 //CRUD - create read update delete
 
-// -------- READ--------
+// -------- UPDATE --------
+const updateClient = (index, client) => {
+    const dbClient = readClient()
+    dbClient[index] = client
+    setLocalStorage(dbClient)
+
+}
+
+
+
+
+
+
+
+// -------- READ --------
 const readClient = () => getLocalStorage()
 
 //pegando o que tem no local storage, transformando em json e armazenando na variável cliente / acrescentar no final com push / enviar pro local storage com dados e valores
