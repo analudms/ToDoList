@@ -21,23 +21,26 @@ const setLocalStorage = (dbClient) =>
 
 //CRUD - create read update delete
 
-// -------- UPDATE --------
-const updateClient = (index, client) => {
+// -------- DELETE --------
+
+const deleteClient = (index) => {
     const dbClient = readClient()
-    dbClient[index] = client
+    dbClient.splice(index, 1)
     setLocalStorage(dbClient)
 
 }
 
 
 
-
-
-
+// -------- UPDATE --------
+const updateClient = (index, client) => {
+    const dbClient = readClient()
+    dbClient[index] = client
+    setLocalStorage(dbClient)
+}
 
 // -------- READ --------
 const readClient = () => getLocalStorage()
-
 //pegando o que tem no local storage, transformando em json e armazenando na variável cliente / acrescentar no final com push / enviar pro local storage com dados e valores
 // -------- CREATE --------
 const createCliente = (client) => {
