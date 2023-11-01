@@ -30,7 +30,7 @@
 
         <table class="records">
             <thead>
-                <tr>
+                <!--<tr>
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Telephone</th>
@@ -68,7 +68,7 @@
                         <button type="button" class="button Edit">Edit</button>
                         <button type="button" class="button Delete">Delete</button>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <div class="modal" id="modal">
@@ -77,15 +77,15 @@
                     <h2>New Customer</h2>
                     <span class="modalClose" id="modalClose">&#10006;</span>
                 </header>
-                <form class="modalForm">
-                    <input type="text" class="modalField" placeholder=" Name">
-                    <input type="email" class="modalField" placeholder="E-mail">
-                    <input type="text" class="modalField" placeholder="Telephone">
-                    <input type="text" class="modalField" placeholder="City">
+                <form class="modalForm" id="form">
+                    <input type="text" id="name" class="modalField" placeholder=" Name" required>
+                    <input type="email" id="email"class="modalField" placeholder="E-mail" required>
+                    <input type="text" id="telephone" class="modalField" placeholder="Telephone" required>
+                    <input type="text" id="city"class="modalField" placeholder="City" required>
                 </form>
                 <footer class="modalFooter">
-                    <button class="button Edit">Register</button>
-                    <button class="button Delete">Cancel</button>
+                    <button class="button Edit" id="register">Register</button>
+                    <button class="button Delete" id="delete">Cancel</button>
                 </footer>
             </div>
         </div>
