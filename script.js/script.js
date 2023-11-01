@@ -149,3 +149,6 @@ document.getElementById("register").addEventListener("click", registerClient);
 document
   .querySelector("#tableClient>tbody")
   .addEventListener("click", editDelete);
+
+document.getElementById('delete')
+  .addEventListener('click', closeModal)
