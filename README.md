@@ -18,7 +18,7 @@ Basta clicar [AQUI](https://analudms.github.io/ToDoList-CRUD/) que você será d
 - HTML e CSS.
 - JavaScript.
 - Git e Github.
-- LocalHost
+- LocalStorage
 
 # Inspiração 💡
 
