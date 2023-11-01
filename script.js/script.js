@@ -49,6 +49,8 @@ const isValidFields = () => {
 const clearFields = () => {
   const fields = document.querySelectorAll(".modalField");
   fields.forEach((fields) => (fields.value = ""));
+  document.getElementById('name').dataset.index = 'new'
+  document.querySelector(".modalHeader>h2").textContent  = 'New Customer'
 };
 
 //Interação com usuário
@@ -112,7 +114,7 @@ const editClient = (index) => {
   const client = readClient()[index];
   client.index = index;
   fillFields(client);
-  document.querySelector(".modalHeader>h2").textContent  = `Editando ${client.name}`
+  document.querySelector(".modalHeader>h2",).textContent = `Editando ${client.name}`;
   openModal();
 };
 
@@ -145,11 +147,15 @@ document
 
 document.getElementById("modalClose").addEventListener("click", closeModal);
 
-document.getElementById("register").addEventListener("click", registerClient);
+document
+  .getElementById("register")
+  .addEventListener("click", registerClient);
+
+
+
 
 document
   .querySelector("#tableClient>tbody")
   .addEventListener("click", editDelete);
 
-document.getElementById('delete')
-  .addEventListener('click', closeModal)
+document.getElementById("delete").addEventListener("click", closeModal);
