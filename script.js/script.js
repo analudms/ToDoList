@@ -112,6 +112,7 @@ const editClient = (index) => {
   const client = readClient()[index];
   client.index = index;
   fillFields(client);
+  document.querySelector(".modalHeader>h2").textContent  = `Editando ${client.name}`
   openModal();
 };
 
