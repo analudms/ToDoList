@@ -1,10 +1,13 @@
 "use strict";
 
-const openModal = () =>
-  document.getElementById("modal").classList.add("active");
+const openModal = () => {
+    document.getElementById("modal").classList.add("active");
+}
 
-const closeModal = () =>
-  document.getElementById("modal").classList.remove("active");
+const closeModal = () =>{
+    clearFields()
+    document.getElementById("modal").classList.remove("active");
+}
 
 const tempClient = {
   nome: "Bruna",
@@ -27,10 +30,7 @@ const deleteClient = (index) => {
     const dbClient = readClient()
     dbClient.splice(index, 1)
     setLocalStorage(dbClient)
-
 }
-
-
 
 // -------- UPDATE --------
 const updateClient = (index, client) => {
@@ -49,9 +49,40 @@ const createCliente = (client) => {
     setLocalStorage(dbClient)
 };
 
+const isValidFields = () => {
+    return document.getElementById('form').reportValidity()
+}
+
+const clearFields = () => {
+    const fields = document.querySelectorAll('.modalField')
+    fields.forEach(fields => fields.value = "")
+}
+
+//Interação com usuário
+const registerClient = () => {
+    if (isValidFields()){
+        const client = {
+            nome: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            email: document.getElementById('telephone').value,
+            email: document.getElementById('city').value
+
+        }
+        createCliente(client)
+        clearFields()
+        closeModal()
+
+    }
+}
+
+
 //Eventos
 document
-  .getElementById("registerCustomer")
-  .addEventListener("click", openModal);
+    .getElementById('registerCustomer')
+    .addEventListener('click', openModal);
 
 document.getElementById("modalClose").addEventListener("click", closeModal);
+
+document.getElementById('register')
+    .addEventListener('click', registerClient)
+
