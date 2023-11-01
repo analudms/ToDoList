@@ -9,13 +9,6 @@ const closeModal = () =>{
     document.getElementById("modal").classList.remove("active");
 }
 
-const tempClient = {
-  nome: "Bruna",
-  email: "bruna@gmail.com",
-  celular: "31988556699",
-  cidade: "Belo Horizonte"
-};
-
 const getLocalStorage = () =>
     JSON.parse(localStorage.getItem("dbClient")) ?? []; // ?? avalia e retorna o valor da expressão a direita se o valor a esquerda for null ou undefined
 
@@ -62,19 +55,47 @@ const clearFields = () => {
 const registerClient = () => {
     if (isValidFields()){
         const client = {
-            nome: document.getElementById('name').value,
+            name: document.getElementById('name').value,
             email: document.getElementById('email').value,
-            email: document.getElementById('telephone').value,
-            email: document.getElementById('city').value
+            telephone: document.getElementById('telephone').value,
+            city: document.getElementById('city').value
 
         }
         createCliente(client)
-        clearFields()
+        updateTable()
         closeModal()
 
     }
 }
 
+const createRow = (client) => {
+    const newRow = document.createElement('tr')
+    newRow.innerHTML = 
+    `
+        <td>${client.nome}</td>
+        <td>${client.email}</td>
+        <td>${client.celular}</td>
+        <td>${client.cidade}</td>
+        <td>
+            <button type="button" class="button Edit">Edit</button>
+            <button type="button" class="button Delete">Delete</button>
+        </td>
+    `
+    document.querySelector('#tableClient>tbody').appendChild(newRow)
+}
+
+const clearTable = () => {
+    const rows = document.querySelectorAll('#tableClient>tbody tr')
+    rows.forEach(row => row.parentNode.removeChild(row))
+}
+
+const updateTable = () => {
+    const dbClient = readClient()
+    clearTable()
+    dbClient.forEach(createRow)
+}
+
+updateTable()
 
 //Eventos
 document
@@ -85,4 +106,3 @@ document.getElementById("modalClose").addEventListener("click", closeModal);
 
 document.getElementById('register')
     .addEventListener('click', registerClient)
-
